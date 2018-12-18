@@ -4,6 +4,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Data.SqlClient;
+using System.Data;
+using System.Configuration;
+using System.Text.RegularExpressions;
 
 namespace Servicos_Web
 {
@@ -15,7 +19,7 @@ namespace Servicos_Web
         bool GetDatalogin(string name, string password);
 
         [OperationContract]
-        bool RegistUser(string name, string password, int contribuinte, int numero_cc, string rua, int num_porta, int cp);
+        bool RegistUser(string name, string password, int contribuinte, DateTime data_Nascimento, int numero_cc, string rua, int num_porta, int cp);
 
         [OperationContract]
         bool DeleteUser(int numero_cc);

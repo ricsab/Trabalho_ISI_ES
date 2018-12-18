@@ -20,7 +20,7 @@ namespace Servicos_Web
         }
 
 
-        public bool RegistUser(string name, string password, int contribuinte,DateTime data_Nascimento ,int numero_cc, string rua, int num_porta, int cp)
+        public bool RegistUser(string name, string password, int contribuinte,DateTimeFormat data_Nascimento ,int numero_cc, string rua, int num_porta, int cp)
         {
             string cs = ConfigurationManager.ConnectionStrings["Trabalho_ISI_ESConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection();

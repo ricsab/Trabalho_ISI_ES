@@ -8,32 +8,31 @@
         </Connections>
         <Tables />
         <Sources>
-          <DbSource ConnectionRef="Trabalho_ISI_ESConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQuery" MethodsParameterType="CLR" Modifier="Public" Name="ScalarQuery" QueryType="Scalar" ScalarCallRetval="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ScalarQuery">
+          <DbSource ConnectionRef="Trabalho_ISI_ESConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQuery" MethodsParameterType="CLR" Modifier="Public" Name="ScalarQuery" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ScalarQuery">
             <SelectCommand>
               <DbCommand CommandType="Text" ModifiedByUser="true">
-                <CommandText>SELECT        [Noticias_Nao Residente].[Não ResidenteValidacão], [Noticias_Nao Residente].NoticiasIDNoticias, [Noticias_Nao Residente].[Nao ResidenteID NaoResidente], Administrador.[FuncionarioID Funcionario], 
-                         Funcionario.[ID Funcionario], Funcionario.[PessoaID Pessoa], Funcionario.Funçao, Noticias.IDNoticias, Noticias.Descriçao, Noticias.TipoNoticia, Noticias.[FuncionarioID Funcionario] AS Expr1, 
-                         [Nao Residente].[PessoaID Pessoa] AS Expr2, [Nao Residente].Validacão, [Nao Residente].[ID NaoResidente], Noticias_Residente.[ResidenteID Residente], Noticias_Residente.ResidenteValidacão, 
-                         Noticias_Residente.NoticiasIDNoticias AS Expr3, Pessoa.[ID Pessoa], Pessoa.Nome, Pessoa.Password, Pessoa.Contribuinte, Pessoa.[Numero Cartão Cidadão], Pessoa.[Data Nascimento], Pessoa.[MoradaID Morada], 
-                         Morada.[ID Morada], Morada.Rua, Morada.N_Porta, Morada.CP_ID, CP.CP_ID AS Expr4, CP.Localidade, Residente.[ID Residente], Residente.Validacão AS Expr5, Residente.[PessoaID Pessoa] AS Expr6, Servicos.[ID Serviço], 
-                         Servicos.Descriçao_Serviço, Servicos.[ResidenteID Residente] AS Expr7, Servicos.[FuncionarioID Funcionario] AS Expr8, Servicos.ResidenteValidacão AS Expr9, Servicos.Data, Servicos.DocsIDDoc, Docs.IDDoc, 
-                         Docs.Descriçao AS Expr10, [Servicos Gerais].[ID Serviço Geral], [Servicos Gerais].Descriçao_Serviço AS Expr11, [Servicos Gerais].[FuncionarioID Funcionario] AS Expr12, [Servicos Gerais].[ResidenteID Residente] AS Expr13, 
-                         [Servicos Gerais].ResidenteValidacão AS Expr14, [Servicos Gerais].Data AS Expr15, [Servicos Gerais].[Nao ResidenteValidacão], [Servicos Gerais].[Nao ResidenteID NaoResidente] AS Expr16
-FROM            [Noticias_Nao Residente] INNER JOIN
-                         Administrador INNER JOIN
-                         Funcionario ON Administrador.[FuncionarioID Funcionario] = Funcionario.[ID Funcionario] INNER JOIN
-                         Noticias ON Funcionario.[ID Funcionario] = Noticias.[FuncionarioID Funcionario] ON [Noticias_Nao Residente].NoticiasIDNoticias = Noticias.IDNoticias INNER JOIN
-                         [Nao Residente] ON [Noticias_Nao Residente].[Não ResidenteValidacão] = [Nao Residente].Validacão AND [Noticias_Nao Residente].[Nao ResidenteID NaoResidente] = [Nao Residente].[ID NaoResidente] INNER JOIN
-                         Noticias_Residente ON Noticias.IDNoticias = Noticias_Residente.NoticiasIDNoticias INNER JOIN
-                         Pessoa ON Funcionario.[PessoaID Pessoa] = Pessoa.[ID Pessoa] AND [Nao Residente].[PessoaID Pessoa] = Pessoa.[ID Pessoa] INNER JOIN
+                <CommandText>SELECT        Administrador.FuncionarioID_Funcionario, Funcionario.ID_Funcionario, Funcionario.Funçao, Funcionario.PessoaID_Pessoa, Morada.ID_Morada, Morada.Rua, Morada.N_Porta, Morada.CPCP_ID, CP.CP_ID, CP.Localidade, 
+                         [Noticias_Nao Residente].[Nao ResidenteValidacão], [Noticias_Nao Residente].[Nao ResidenteID_NaoResidente], [Noticias_Nao Residente].NoticiasIDNoticias, [Nao Residente].Validacão, [Nao Residente].ID_NaoResidente, 
+                         [Nao Residente].PessoaID_Pessoa AS Expr1, Noticias.IDNoticias, Noticias.Descriçao, Noticias.TipoNoticia, Noticias_Residente.ResidenteID_Residente, Noticias_Residente.ResidenteValidacão, 
+                         Noticias_Residente.NoticiasIDNoticias AS Expr2, Pessoa.ID_Pessoa, Pessoa.Nome, Pessoa.Password, Pessoa.Contribuinte, Pessoa.[Numero Cartão Cidadão], Pessoa.[Data Nascimento], Pessoa.MoradaID_Morada, 
+                         Residente.ID_Residente, Residente.Validacão AS Expr3, Residente.PessoaID_Pessoa AS Expr4, Servicos.ID_Servico, Servicos.Descriçao_Serviço, Servicos.Data, Servicos.DocsID_Doc, 
+                         Servicos.FuncionarioID_Funcionario AS Expr5, Servicos.ResidenteID_Residente AS Expr6, Servicos.ResidenteValidacão AS Expr7, Docs.ID_Doc, Docs.Descriçao AS Expr8, [Servicos Gerais].ID_Servico_Geral, 
+                         [Servicos Gerais].Descriçao_Serviço AS Expr9, [Servicos Gerais].Data AS Expr10, [Servicos Gerais].[Nao ResidenteValidacão] AS Expr11, [Servicos Gerais].[Nao ResidenteID_NaoResidente] AS Expr12, 
+                         [Servicos Gerais].FuncionarioID_Funcionario AS Expr13
+FROM            Administrador INNER JOIN
+                         Funcionario ON Administrador.FuncionarioID_Funcionario = Funcionario.ID_Funcionario INNER JOIN
                          Morada INNER JOIN
-                         CP ON Morada.CP_ID = CP.CP_ID ON Pessoa.[MoradaID Morada] = Morada.[ID Morada] INNER JOIN
-                         Residente ON Noticias_Residente.[ResidenteID Residente] = Residente.[ID Residente] AND Noticias_Residente.ResidenteValidacão = Residente.Validacão AND Pessoa.[ID Pessoa] = Residente.[PessoaID Pessoa] INNER JOIN
-                         Servicos ON Funcionario.[ID Funcionario] = Servicos.[FuncionarioID Funcionario] AND Residente.[ID Residente] = Servicos.[ResidenteID Residente] AND Residente.Validacão = Servicos.ResidenteValidacão INNER JOIN
-                         Docs ON Servicos.DocsIDDoc = Docs.IDDoc INNER JOIN
-                         [Servicos Gerais] ON Funcionario.[ID Funcionario] = [Servicos Gerais].[FuncionarioID Funcionario] AND [Nao Residente].Validacão = [Servicos Gerais].[Nao ResidenteValidacão] AND 
-                         [Nao Residente].[ID NaoResidente] = [Servicos Gerais].[Nao ResidenteID NaoResidente] AND Residente.[ID Residente] = [Servicos Gerais].[ResidenteID Residente] AND 
-                         Residente.Validacão = [Servicos Gerais].ResidenteValidacão</CommandText>
+                         CP ON Morada.CPCP_ID = CP.CP_ID INNER JOIN
+                         [Noticias_Nao Residente] INNER JOIN
+                         [Nao Residente] ON [Noticias_Nao Residente].[Nao ResidenteValidacão] = [Nao Residente].Validacão AND [Noticias_Nao Residente].[Nao ResidenteID_NaoResidente] = [Nao Residente].ID_NaoResidente INNER JOIN
+                         Noticias ON [Noticias_Nao Residente].NoticiasIDNoticias = Noticias.IDNoticias INNER JOIN
+                         Noticias_Residente ON Noticias.IDNoticias = Noticias_Residente.NoticiasIDNoticias INNER JOIN
+                         Pessoa ON [Nao Residente].PessoaID_Pessoa = Pessoa.ID_Pessoa ON Morada.ID_Morada = Pessoa.MoradaID_Morada ON Funcionario.PessoaID_Pessoa = Pessoa.ID_Pessoa INNER JOIN
+                         Residente ON Noticias_Residente.ResidenteID_Residente = Residente.ID_Residente AND Noticias_Residente.ResidenteValidacão = Residente.Validacão AND Pessoa.ID_Pessoa = Residente.PessoaID_Pessoa INNER JOIN
+                         Servicos ON Funcionario.ID_Funcionario = Servicos.FuncionarioID_Funcionario AND Residente.ID_Residente = Servicos.ResidenteID_Residente AND Residente.Validacão = Servicos.ResidenteValidacão INNER JOIN
+                         Docs ON Servicos.DocsID_Doc = Docs.ID_Doc INNER JOIN
+                         [Servicos Gerais] ON Funcionario.ID_Funcionario = [Servicos Gerais].FuncionarioID_Funcionario AND [Nao Residente].Validacão = [Servicos Gerais].[Nao ResidenteValidacão] AND 
+                         [Nao Residente].ID_NaoResidente = [Servicos Gerais].[Nao ResidenteID_NaoResidente]</CommandText>
                 <Parameters />
               </DbCommand>
             </SelectCommand>

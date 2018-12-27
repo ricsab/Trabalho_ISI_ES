@@ -16,16 +16,16 @@ namespace Servicos_Web
     public interface IService1
     {
         [OperationContract]
-        bool GetDatalogin(string name, string password);
+        Utilizador GetUser(int numero_cc);
 
         [OperationContract]
-        bool RegistUser(string name, string password, int contribuinte, DateTimeFormat data_Nascimento, int numero_cc, string rua, int num_porta, int cp);
+        bool RegistUser(string name, string password, int contribuinte, string data_Nascimento, int numero_cc, string rua, int num_porta, string cp);
 
         [OperationContract]
         bool DeleteUser(int numero_cc);
 
         [OperationContract]
-        bool UpdateUser(string name, string password, int contribuinte, int numero_cc, string rua, int num_porta, int cp);
+        bool UpdateUser(string name, string password, int contribuinte, string data_Nascimento, int numero_cc, string rua, int num_porta, string cp);
     }
 
    

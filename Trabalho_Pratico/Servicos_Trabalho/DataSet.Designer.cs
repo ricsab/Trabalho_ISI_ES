@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Servicos_Web {
+namespace Servicos_Trabalho {
     
     
     /// <summary>
@@ -238,7 +238,7 @@ namespace Servicos_Web {
         }
     }
 }
-namespace Servicos_Web.DataSetTableAdapters {
+namespace Servicos_Trabalho.DataSetTableAdapters {
     
     
     /// <summary>
@@ -270,51 +270,53 @@ namespace Servicos_Web.DataSetTableAdapters {
         private void InitCommandCollection() {
             this._commandCollection = new global::System.Data.IDbCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Servicos_Web.Properties.Settings.Default.Trabalho_ISI_ESConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Trabalho_ISI_ESConnectionString"].ConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "SELECT        Administrador.FuncionarioID_Funcionario, Funcionario.ID_Funcionario" +
                 ", Funcionario.Funçao, Funcionario.PessoaID_Pessoa, Morada.ID_Morada, Morada.Rua," +
                 " Morada.N_Porta, Morada.CPCP_ID, CP.CP_ID, CP.Localidade, \r\n                    " +
-                "     [Noticias_Nao Residente].[Nao ResidenteValidacão], [Noticias_Nao Residente]" +
-                ".[Nao ResidenteID_NaoResidente], [Noticias_Nao Residente].NoticiasIDNoticias, [N" +
-                "ao Residente].Validacão, [Nao Residente].ID_NaoResidente, \r\n                    " +
-                "     [Nao Residente].PessoaID_Pessoa AS Expr1, Noticias.IDNoticias, Noticias.Des" +
-                "criçao, Noticias.TipoNoticia, Noticias_Residente.ResidenteID_Residente, Noticias" +
-                "_Residente.ResidenteValidacão, \r\n                         Noticias_Residente.Not" +
-                "iciasIDNoticias AS Expr2, Pessoa.ID_Pessoa, Pessoa.Nome, Pessoa.Password, Pessoa" +
-                ".Contribuinte, Pessoa.[Numero Cartão Cidadão], Pessoa.[Data Nascimento], Pessoa." +
-                "MoradaID_Morada, \r\n                         Residente.ID_Residente, Residente.Va" +
-                "lidacão AS Expr3, Residente.PessoaID_Pessoa AS Expr4, Servicos.ID_Servico, Servi" +
-                "cos.Descriçao_Serviço, Servicos.Data, Servicos.DocsID_Doc, \r\n                   " +
-                "      Servicos.FuncionarioID_Funcionario AS Expr5, Servicos.ResidenteID_Resident" +
-                "e AS Expr6, Servicos.ResidenteValidacão AS Expr7, Docs.ID_Doc, Docs.Descriçao AS" +
-                " Expr8, [Servicos Gerais].ID_Servico_Geral, \r\n                         [Servicos" +
-                " Gerais].Descriçao_Serviço AS Expr9, [Servicos Gerais].Data AS Expr10, [Servicos" +
-                " Gerais].[Nao ResidenteValidacão] AS Expr11, [Servicos Gerais].[Nao ResidenteID_" +
-                "NaoResidente] AS Expr12, \r\n                         [Servicos Gerais].Funcionari" +
-                "oID_Funcionario AS Expr13\r\nFROM            Administrador INNER JOIN\r\n           " +
-                "              Funcionario ON Administrador.FuncionarioID_Funcionario = Funcionar" +
-                "io.ID_Funcionario INNER JOIN\r\n                         Morada INNER JOIN\r\n      " +
-                "                   CP ON Morada.CPCP_ID = CP.CP_ID INNER JOIN\r\n                 " +
-                "        [Noticias_Nao Residente] INNER JOIN\r\n                         [Nao Resid" +
-                "ente] ON [Noticias_Nao Residente].[Nao ResidenteValidacão] = [Nao Residente].Val" +
-                "idacão AND [Noticias_Nao Residente].[Nao ResidenteID_NaoResidente] = [Nao Reside" +
-                "nte].ID_NaoResidente INNER JOIN\r\n                         Noticias ON [Noticias_" +
-                "Nao Residente].NoticiasIDNoticias = Noticias.IDNoticias INNER JOIN\r\n            " +
-                "             Noticias_Residente ON Noticias.IDNoticias = Noticias_Residente.Noti" +
-                "ciasIDNoticias INNER JOIN\r\n                         Pessoa ON [Nao Residente].Pe" +
-                "ssoaID_Pessoa = Pessoa.ID_Pessoa ON Morada.ID_Morada = Pessoa.MoradaID_Morada ON" +
-                " Funcionario.PessoaID_Pessoa = Pessoa.ID_Pessoa INNER JOIN\r\n                    " +
-                "     Residente ON Noticias_Residente.ResidenteID_Residente = Residente.ID_Reside" +
-                "nte AND Noticias_Residente.ResidenteValidacão = Residente.Validacão AND Pessoa.I" +
-                "D_Pessoa = Residente.PessoaID_Pessoa INNER JOIN\r\n                         Servic" +
-                "os ON Funcionario.ID_Funcionario = Servicos.FuncionarioID_Funcionario AND Reside" +
-                "nte.ID_Residente = Servicos.ResidenteID_Residente AND Residente.Validacão = Serv" +
-                "icos.ResidenteValidacão INNER JOIN\r\n                         Docs ON Servicos.Do" +
-                "csID_Doc = Docs.ID_Doc INNER JOIN\r\n                         [Servicos Gerais] ON" +
-                " Funcionario.ID_Funcionario = [Servicos Gerais].FuncionarioID_Funcionario AND [N" +
-                "ao Residente].Validacão = [Servicos Gerais].[Nao ResidenteValidacão] AND \r\n     " +
-                "                    [Nao Residente].ID_NaoResidente = [Servicos Gerais].[Nao Res" +
-                "identeID_NaoResidente]";
+                "     Noticias_Nao_Residente.Nao_ResidenteValidacao, Noticias_Nao_Residente.Nao_R" +
+                "esidenteID_NaoResidente, Noticias_Nao_Residente.NoticiasIDNoticias, Nao_Resident" +
+                "e.Validacao, Nao_Residente.ID_NaoResidente, \r\n                         Nao_Resid" +
+                "ente.PessoaID_Pessoa AS Expr1, Noticias.IDNoticias, Noticias.Descriçao, Noticias" +
+                ".Tipo_Noticia, Noticias_Residente.NoticiasIDNoticias AS Expr2, Noticias_Resident" +
+                "e.ResidenteID_Residente, \r\n                         Noticias_Residente.Residente" +
+                "Validacao, Pessoa.ID_Pessoa, Pessoa.Nome, Pessoa.Password, Pessoa.Contribuinte, " +
+                "Pessoa.Numero_Cartao_Cidadao, Pessoa.Data_Nascimento, Pessoa.MoradaID_Morada, \r\n" +
+                "                         Residente.ID_Residente, Residente.Validacao AS Expr3, R" +
+                "esidente.PessoaID_Pessoa AS Expr4, Servicos.ID_Servico, Servicos.Descriçao_Servi" +
+                "ço, Servicos.Data, Servicos.ResidenteID_Residente AS Expr5, \r\n                  " +
+                "       Servicos.ResidenteValidacao AS Expr6, Servicos.FuncionarioID_Funcionario " +
+                "AS Expr7, Servicos.DocsID_Doc, Docs.ID_Doc, Docs.Descriçao AS Expr8, Servicos_Ge" +
+                "rais.ID_Servico_Geral, \r\n                         Servicos_Gerais.Descriçao_Serv" +
+                "iço AS Expr9, Servicos_Gerais.Data AS Expr10, Servicos_Gerais.Nao_ResidenteValid" +
+                "acao AS Expr11, Servicos_Gerais.Nao_ResidenteID_NaoResidente AS Expr12, \r\n      " +
+                "                   Servicos_Gerais.FuncionarioID_Funcionario AS Expr13, Servicos" +
+                "_Gerais.ResidenteID_Residente AS Expr14, Servicos_Gerais.ResidenteValidacao AS E" +
+                "xpr15\r\nFROM            Administrador INNER JOIN\r\n                         Funcio" +
+                "nario ON Administrador.FuncionarioID_Funcionario = Funcionario.ID_Funcionario IN" +
+                "NER JOIN\r\n                         Morada INNER JOIN\r\n                         C" +
+                "P ON Morada.CPCP_ID = CP.CP_ID INNER JOIN\r\n                         Noticias_Nao" +
+                "_Residente INNER JOIN\r\n                         Nao_Residente ON Noticias_Nao_Re" +
+                "sidente.Nao_ResidenteValidacao = Nao_Residente.Validacao AND Noticias_Nao_Reside" +
+                "nte.Nao_ResidenteID_NaoResidente = Nao_Residente.ID_NaoResidente INNER JOIN\r\n   " +
+                "                      Noticias ON Noticias_Nao_Residente.NoticiasIDNoticias = No" +
+                "ticias.IDNoticias INNER JOIN\r\n                         Noticias_Residente ON Not" +
+                "icias.IDNoticias = Noticias_Residente.NoticiasIDNoticias INNER JOIN\r\n           " +
+                "              Pessoa ON Nao_Residente.PessoaID_Pessoa = Pessoa.ID_Pessoa ON Mora" +
+                "da.ID_Morada = Pessoa.MoradaID_Morada ON Funcionario.PessoaID_Pessoa = Pessoa.ID" +
+                "_Pessoa INNER JOIN\r\n                         Residente ON Noticias_Residente.Res" +
+                "identeID_Residente = Residente.ID_Residente AND Noticias_Residente.ResidenteVali" +
+                "dacao = Residente.Validacao AND Pessoa.ID_Pessoa = Residente.PessoaID_Pessoa INN" +
+                "ER JOIN\r\n                         Servicos ON Funcionario.ID_Funcionario = Servi" +
+                "cos.FuncionarioID_Funcionario AND Residente.ID_Residente = Servicos.ResidenteID_" +
+                "Residente AND Residente.Validacao = Servicos.ResidenteValidacao INNER JOIN\r\n    " +
+                "                     Docs ON Servicos.DocsID_Doc = Docs.ID_Doc INNER JOIN\r\n     " +
+                "                    Servicos_Gerais ON Funcionario.ID_Funcionario = Servicos_Ger" +
+                "ais.FuncionarioID_Funcionario AND Nao_Residente.Validacao = Servicos_Gerais.Nao_" +
+                "ResidenteValidacao AND \r\n                         Nao_Residente.ID_NaoResidente " +
+                "= Servicos_Gerais.Nao_ResidenteID_NaoResidente AND Residente.ID_Residente = Serv" +
+                "icos_Gerais.ResidenteID_Residente AND Residente.Validacao = Servicos_Gerais.Resi" +
+                "denteValidacao";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.Text;
         }
         
